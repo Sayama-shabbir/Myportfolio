@@ -1,0 +1,691 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sayama Shabbir — Personal Portfolio</title>
+    <meta
+      name="description"
+      content="An editorial personal portfolio for Sayama Shabbir specializing in Cloud Computing, Data Analytics, Frontend Development, and Competitive Programming."
+    />
+    <meta property="og:title" content="Sayama Shabbir — Personal Portfolio" />
+    <meta
+      property="og:description"
+      content="An editorial personal portfolio for Sayama Shabbir specializing in Cloud Computing, Data Analytics, Frontend Development, and Competitive Programming."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Google Fonts: Bodoni Moda (Variable with Optical Size) & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400..600&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#section-about">Skip to portfolio content</a>
+
+    <!-- Fixed Warm Paper Fractal-Noise Texture (Multiply · 38% Opacity) -->
+    <div class="paper-noise" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+        <filter id="editorial-fractal-noise" x="0%" y="0%" width="100%" height="100%">
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency="0.78"
+            numOctaves="4"
+            stitchTiles="stitch"
+          />
+          <feColorMatrix type="saturate" values="0" />
+          <feComponentTransfer>
+            <feFuncR type="linear" slope="0.34" intercept="0.69" />
+            <feFuncG type="linear" slope="0.34" intercept="0.67" />
+            <feFuncB type="linear" slope="0.34" intercept="0.63" />
+          </feComponentTransfer>
+        </filter>
+        <rect width="100%" height="100%" filter="url(#editorial-fractal-noise)" />
+      </svg>
+    </div>
+
+    <!-- Editorial Overlays Backdrop -->
+    <div id="overlay-backdrop" class="overlay-backdrop" aria-hidden="true"></div>
+
+    <!-- Editorial Navigation Drawer (MENU) -->
+    <aside
+      id="editorial-menu"
+      class="editorial-sheet"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Portfolio navigation"
+      aria-hidden="true"
+    >
+      <div class="sheet-inner">
+        <div class="sheet-topbar">
+          <p class="editorial-label">Portfolio Index</p>
+          <button type="button" id="menu-close-btn" class="sheet-close">
+            <span>Close</span>
+            <svg viewBox="0 0 16 16" aria-hidden="true">
+              <path d="M3 3l10 10M13 3L3 13" />
+            </svg>
+          </button>
+        </div>
+
+        <ul class="menu-chapters">
+          <li>
+            <a href="#section-hero" class="menu-chapter-link" data-menu-jump>
+              <span class="menu-chapter-title">Introduction</span>
+              <span class="menu-chapter-num">01</span>
+            </a>
+          </li>
+          <li>
+            <a href="#section-about" class="menu-chapter-link" data-menu-jump>
+              <span class="menu-chapter-title">About Me</span>
+              <span class="menu-chapter-num">02</span>
+            </a>
+          </li>
+          <li>
+            <a href="#section-profile" class="menu-chapter-link" data-menu-jump>
+              <span class="menu-chapter-title">Quick Facts &amp; Profile</span>
+              <span class="menu-chapter-num">03</span>
+            </a>
+          </li>
+          <li>
+            <a href="#section-connect" class="menu-chapter-link" data-menu-jump>
+              <span class="menu-chapter-title">Let's Connect</span>
+              <span class="menu-chapter-num">04</span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="menu-sheet-footer">
+          <span>Sayama Shabbir · Cloud Computing &amp; Technology</span>
+          <div class="menu-footer-links">
+            <a href="mailto:saymashabbir312@gmail.com">saymashabbir312@gmail.com</a>
+            <span aria-hidden="true">·</span>
+            <a
+              href="https://www.linkedin.com/in/sayama-shabbir-a4229532a/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Editorial Live CV Search Spotlight (SEARCH) -->
+    <aside
+      id="editorial-search"
+      class="editorial-sheet"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Search CV portfolio"
+      aria-hidden="true"
+    >
+      <div class="sheet-inner">
+        <div class="sheet-topbar">
+          <p class="editorial-label">Search Portfolio &amp; CV</p>
+          <button type="button" id="search-close-btn" class="sheet-close">
+            <span>Close</span>
+            <svg viewBox="0 0 16 16" aria-hidden="true">
+              <path d="M3 3l10 10M13 3L3 13" />
+            </svg>
+          </button>
+        </div>
+
+        <div class="search-field-wrap">
+          <svg viewBox="0 0 20 20" aria-hidden="true">
+            <circle cx="8.5" cy="8.5" r="5.75" />
+            <path d="M13 13l4.2 4.2" stroke-linecap="round" />
+          </svg>
+          <input
+            id="search-input"
+            class="search-input"
+            type="search"
+            autocomplete="off"
+            placeholder="Search skills, qualifications, subjects, Deloitte..."
+            aria-label="Search CV keywords"
+          />
+        </div>
+
+        <div class="search-suggestions">
+          <span>Quick topics:</span>
+          <button type="button" class="search-suggestion-btn" data-search-suggest="Cloud Computing">
+            Cloud Computing
+          </button>
+          <span aria-hidden="true">·</span>
+          <button type="button" class="search-suggestion-btn" data-search-suggest="Python">
+            Python
+          </button>
+          <span aria-hidden="true">·</span>
+          <button type="button" class="search-suggestion-btn" data-search-suggest="JavaScript">
+            JavaScript
+          </button>
+          <span aria-hidden="true">·</span>
+          <button type="button" class="search-suggestion-btn" data-search-suggest="C++">
+            C++
+          </button>
+          <span aria-hidden="true">·</span>
+          <button type="button" class="search-suggestion-btn" data-search-suggest="8.2">
+            8.2 CGPA
+          </button>
+          <span aria-hidden="true">·</span>
+          <button type="button" class="search-suggestion-btn" data-search-suggest="Deloitte">
+            Deloitte
+          </button>
+          <span aria-hidden="true">·</span>
+          <button type="button" class="search-suggestion-btn" data-search-suggest="Connect">
+            Connect
+          </button>
+        </div>
+
+        <ul id="search-results" class="search-results" aria-live="polite"></ul>
+      </div>
+    </aside>
+
+    <!-- Page Stage Wrapper -->
+    <div id="page-stage" class="page-stage">
+      <!-- Top Minimal Editorial Navigation -->
+      <header id="site-nav" class="site-nav">
+        <div class="nav-zone-left">
+          <button
+            type="button"
+            id="menu-trigger"
+            class="nav-trigger"
+            aria-expanded="false"
+            aria-controls="editorial-menu"
+            aria-label="Open menu"
+          >
+            <span class="menu-lines" aria-hidden="true">
+              <span></span>
+              <span></span>
+            </span>
+            <span class="nav-btn-label">MENU</span>
+          </button>
+        </div>
+
+        <div class="nav-zone-center">
+          <a href="#section-hero" class="brand-link" aria-label="Sayama Shabbir Personal Portfolio">
+            <span class="brand-name">SAYAMA SHABBIR</span>
+            <span class="brand-sub">PERSONAL PORTFOLIO</span>
+          </a>
+        </div>
+
+        <div class="nav-zone-right">
+          <button
+            type="button"
+            id="search-trigger"
+            class="nav-trigger"
+            aria-expanded="false"
+            aria-controls="editorial-search"
+            aria-label="Search portfolio"
+          >
+            <svg class="search-icon" viewBox="0 0 20 20" aria-hidden="true">
+              <circle cx="8.5" cy="8.5" r="5.75" />
+              <path d="M13 13l4.2 4.2" stroke-linecap="round" />
+            </svg>
+            <span class="nav-btn-label">SEARCH</span>
+          </button>
+        </div>
+      </header>
+
+      <main>
+        <!-- ================================================================
+             1. HERO — INTRODUCTION
+             ================================================================ -->
+        <section id="section-hero" class="hero-section" aria-label="Introduction">
+          <div id="hero-stage" class="hero-stage">
+            <div id="hero-media-wrap" class="hero-media-wrap">
+              <img
+                id="hero-bg-img"
+                class="hero-bg-img"
+                src="/assets/aistudio/IMG_0303_776de439.jpeg"
+                alt="Sayama Shabbir standing along the waterfront at golden sunset"
+                referrerpolicy="no-referrer"
+                fetchpriority="high"
+              />
+              <div class="hero-warm-grade" aria-hidden="true"></div>
+            </div>
+
+            <div class="hero-title-block">
+              <p id="hero-eyebrow" class="hero-eyebrow">CLOUD COMPUTING &bull; TECHNOLOGY</p>
+              <h1 id="hero-title" class="hero-title">SAYAMA SHABBIR</h1>
+            </div>
+          </div>
+
+          <!-- Warm Cream Paper Melt Transition Layers -->
+          <div id="hero-paper-gradient" class="hero-paper-gradient" aria-hidden="true"></div>
+          <div id="hero-paper-solid" class="hero-paper-solid" aria-hidden="true"></div>
+
+          <!-- High-Contrast Bottom Explore Pill -->
+          <div id="explore-pill-wrap" class="hero-bottom-pill-wrap">
+            <button type="button" id="explore-pill-btn" class="hero-pill">
+              <span>EXPLORE MY JOURNEY</span>
+              <span class="hero-pill-circle" aria-hidden="true">
+                <svg viewBox="0 0 14 14">
+                  <path d="M7 2.5v9M3.5 8L7 11.5 10.5 8" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </span>
+            </button>
+          </div>
+        </section>
+
+        <!-- ================================================================
+             2. PERSONAL STATEMENT — ABOUT ME
+             ================================================================ -->
+        <section
+          id="section-about"
+          class="statement-section"
+          aria-labelledby="about-label"
+        >
+          <div class="statement-inner">
+            <p id="about-label" class="editorial-label statement-kicker">ABOUT ME</p>
+
+            <h2
+              class="statement-heading"
+              aria-label="A passion for technology and innovation"
+            >
+              <span class="statement-line">
+                <span class="statement-line-text">A PASSION FOR</span>
+                <span class="inline-photo-pill inline-photo-pill--one" aria-hidden="true">
+                  <img
+                    src="/assets/aistudio/IMG_1670_b163c17f.JPG"
+                    alt=""
+                    referrerpolicy="no-referrer"
+                    loading="eager"
+                  />
+                </span>
+              </span>
+
+              <span class="statement-line">
+                <span class="statement-line-text">TECHNOLOGY AND</span>
+                <span class="inline-photo-pill inline-photo-pill--two" aria-hidden="true">
+                  <img
+                    src="/assets/aistudio/IMG_0303_776de439.jpeg"
+                    alt=""
+                    referrerpolicy="no-referrer"
+                    loading="eager"
+                  />
+                </span>
+              </span>
+
+              <span class="statement-line">
+                <span class="statement-line-text">INNOVATION</span>
+              </span>
+            </h2>
+
+            <!-- 66px Rust Double-Ring Emblem with Connected Cloud-Node Constellation -->
+            <div class="statement-emblem" aria-hidden="true">
+              <svg viewBox="0 0 66 66" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="33" cy="33" r="31.5" stroke="currentColor" stroke-width="1" />
+                <circle
+                  cx="33"
+                  cy="33"
+                  r="27"
+                  stroke="currentColor"
+                  stroke-width="0.85"
+                  stroke-dasharray="2.2 2.2"
+                />
+                <!-- Cardinal ticks -->
+                <path
+                  d="M33 1.5V5.5M33 60.5V64.5M1.5 33H5.5M60.5 33H64.5"
+                  stroke="currentColor"
+                  stroke-width="1"
+                  stroke-linecap="round"
+                />
+                <!-- Minimalist Cloud-Node Geometric Constellation -->
+                <path
+                  d="M22.5 36.5H43.5C46.2 36.5 48.2 34.5 48.2 31.9C48.2 29.5 46.4 27.6 44 27.4C43.2 23.2 39.5 20 35 20C30.8 20 27.2 22.8 26.2 26.8C25.6 26.6 25 26.5 24.3 26.5C21.1 26.5 18.5 28.9 18.5 32C18.5 34.6 20.3 36.5 22.5 36.5Z"
+                  stroke="currentColor"
+                  stroke-width="1.2"
+                  stroke-linejoin="round"
+                />
+                <!-- Connected constellation lines & nodes -->
+                <path
+                  d="M26 36.5L23.5 44M33 36.5V46M40 36.5L42.5 44M27.5 30.5L33 26.5L39 30.5L33 33.5L27.5 30.5Z"
+                  stroke="currentColor"
+                  stroke-width="1.05"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <circle cx="33" cy="26.5" r="1.7" fill="currentColor" />
+                <circle cx="27.5" cy="30.5" r="1.5" fill="currentColor" />
+                <circle cx="39" cy="30.5" r="1.5" fill="currentColor" />
+                <circle cx="23.5" cy="44" r="1.6" fill="currentColor" />
+                <circle cx="33" cy="46" r="1.8" fill="currentColor" />
+                <circle cx="42.5" cy="44" r="1.6" fill="currentColor" />
+              </svg>
+            </div>
+
+            <p
+              class="statement-intro"
+              data-cv-title="About Me — Personal Introduction"
+              data-cv-cat="Statement"
+            >
+              A B.Tech student specializing in Cloud Computing with a strong interest in full-stack
+              web development, data analytics, and artificial intelligence. Focused on building a
+              strong technical foundation while continuously learning and applying modern
+              technologies to solve real-world problems. Eager to contribute creativity, technical
+              skills, and dedication to innovative projects while growing as a technology
+              professional.
+            </p>
+          </div>
+        </section>
+
+        <!-- ================================================================
+             3. QUICK FACTS — MY PROFILE
+             ================================================================ -->
+        <section
+          id="section-profile"
+          class="profile-section"
+          aria-labelledby="profile-label"
+        >
+          <div class="profile-container">
+            <div class="profile-grid">
+              <!-- LEFT COLUMN: Profile, Play Badge, Personal Details & Technical Proficiency -->
+              <div class="profile-col-left">
+                <p id="profile-label" class="editorial-label profile-kicker">MY PROFILE</p>
+
+                <h2 class="profile-heading" aria-label="Quick Facts About Me">
+                  <span class="profile-heading-line">QUICK</span>
+                  <span class="profile-heading-line">FACTS</span>
+                  <span class="profile-heading-line">ABOUT</span>
+                  <span class="profile-heading-line">ME</span>
+                </h2>
+
+                <!-- 84px Circular Play Badge (48 Radial Ticks · 16s Rotation) -->
+                <div class="play-badge-block">
+                  <button
+                    type="button"
+                    id="play-badge-btn"
+                    class="play-badge-btn"
+                    aria-pressed="false"
+                    aria-label="Toggle guided reading scroll through portfolio"
+                  >
+                    <svg
+                      class="play-badge-ring"
+                      viewBox="0 0 84 84"
+                      aria-hidden="true"
+                    >
+                      <g id="play-badge-ticks"></g>
+                    </svg>
+                    <span class="play-badge-center" aria-hidden="true">
+                      <svg class="play-badge-icon-play" viewBox="0 0 12 12">
+                        <polygon points="3.5,2 10.2,6 3.5,10" />
+                      </svg>
+                      <svg class="play-badge-icon-pause" viewBox="0 0 12 12">
+                        <rect x="2.8" y="2.2" width="2.2" height="7.6" />
+                        <rect x="7" y="2.2" width="2.2" height="7.6" />
+                      </svg>
+                    </span>
+                  </button>
+                  <span id="play-badge-caption" class="play-badge-caption">7 MINUTES</span>
+                </div>
+
+                <!-- Personal Details -->
+                <div
+                  class="compact-dossier-block"
+                  data-cv-title="Personal Details"
+                  data-cv-cat="Profile"
+                >
+                  <h3 class="dossier-subhead" data-profile-reveal>PERSONAL DETAILS</h3>
+                  <dl class="editorial-dl">
+                    <div class="editorial-row" data-profile-reveal>
+                      <dt>Date of Birth</dt>
+                      <dd>25 November 2007</dd>
+                    </div>
+                    <div class="editorial-row" data-profile-reveal>
+                      <dt>Gender</dt>
+                      <dd>Female</dd>
+                    </div>
+                    <div class="editorial-row" data-profile-reveal>
+                      <dt>Nationality</dt>
+                      <dd>Indian</dd>
+                    </div>
+                    <div class="editorial-row" data-profile-reveal>
+                      <dt>Languages</dt>
+                      <dd>English, Hindi</dd>
+                    </div>
+                  </dl>
+                </div>
+
+                <!-- Technical Proficiency -->
+                <div
+                  class="compact-dossier-block"
+                  data-cv-title="Technical Proficiency"
+                  data-cv-cat="Proficiency"
+                >
+                  <h3 class="dossier-subhead" data-profile-reveal>TECHNICAL PROFICIENCY</h3>
+                  <ul class="proficiency-list">
+                    <li class="proficiency-row" data-profile-reveal>
+                      <span class="proficiency-index">01</span>
+                      <span class="proficiency-name">Python</span>
+                    </li>
+                    <li class="proficiency-row" data-profile-reveal>
+                      <span class="proficiency-index">02</span>
+                      <span class="proficiency-name">C++</span>
+                    </li>
+                    <li class="proficiency-row" data-profile-reveal>
+                      <span class="proficiency-index">03</span>
+                      <span class="proficiency-name">HTML5</span>
+                    </li>
+                    <li class="proficiency-row" data-profile-reveal>
+                      <span class="proficiency-index">04</span>
+                      <span class="proficiency-name">CSS</span>
+                    </li>
+                    <li class="proficiency-row" data-profile-reveal>
+                      <span class="proficiency-index">05</span>
+                      <span class="proficiency-name">JavaScript</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- MIDDLE COLUMN: Skills, Academic Qualifications & Work Experience -->
+              <div class="profile-col-middle">
+                <!-- SKILLS -->
+                <div class="middle-group">
+                  <h3 class="dossier-subhead" data-profile-reveal>SKILLS</h3>
+
+                  <article
+                    class="skill-entry"
+                    data-profile-reveal
+                    data-cv-title="Data Analysis"
+                    data-cv-cat="Skills"
+                  >
+                    <h4 class="entry-title">DATA ANALYSIS</h4>
+                    <p class="entry-prose">
+                      Extracting insights with Excel and using Python and its toolkit like
+                      Matplotlib to visualize and analyse the data.
+                    </p>
+                  </article>
+
+                  <article
+                    class="skill-entry"
+                    data-profile-reveal
+                    data-cv-title="Frontend Dev"
+                    data-cv-cat="Skills"
+                  >
+                    <h4 class="entry-title">FRONTEND DEV</h4>
+                    <p class="entry-prose">
+                      Aspiring frontend developer with a foundational understanding of HTML5 and
+                      CSS, focused on creating clean, responsive, and user-friendly web interfaces.
+                    </p>
+                  </article>
+
+                  <article
+                    class="skill-entry"
+                    data-profile-reveal
+                    data-cv-title="Competitive Programmer"
+                    data-cv-cat="Skills"
+                  >
+                    <h4 class="entry-title">COMPETITIVE PROGRAMMER</h4>
+                    <p class="entry-prose">
+                      Competitive programmer on CodeChef with proficiency in C++, focused on
+                      problem-solving and algorithmic thinking.
+                    </p>
+                  </article>
+                </div>
+
+                <!-- ACADEMIC QUALIFICATIONS -->
+                <div class="middle-group">
+                  <h3 class="dossier-subhead" data-profile-reveal>ACADEMIC QUALIFICATIONS</h3>
+
+                  <article
+                    class="edu-card"
+                    data-profile-reveal
+                    data-cv-title="B. Tech (First Year) — Techno India University"
+                    data-cv-cat="Education"
+                  >
+                    <div class="edu-header-row">
+                      <h4 class="edu-degree">B. TECH (FIRST YEAR)</h4>
+                      <span class="edu-year">2025 (pursuing)</span>
+                    </div>
+                    <dl class="edu-meta-dl">
+                      <div class="edu-meta-row">
+                        <dt>Techno India University, Kolkata</dt>
+                        <dd>First Year CGPA: 8.2</dd>
+                      </div>
+                    </dl>
+                  </article>
+
+                  <article
+                    class="edu-card"
+                    data-profile-reveal
+                    data-cv-title="CBSE (Class 12th) — New Horizon School"
+                    data-cv-cat="Education"
+                  >
+                    <div class="edu-header-row">
+                      <h4 class="edu-degree">CBSE (CLASS 12TH)</h4>
+                    </div>
+                    <dl class="edu-meta-dl">
+                      <div class="edu-meta-row">
+                        <dt>New Horizon School</dt>
+                        <dd>2024</dd>
+                      </div>
+                    </dl>
+                    <p class="edu-subjects">
+                      Subjects: Physics, Chemistry, Mathematics, Music, English.
+                    </p>
+                  </article>
+
+                  <article
+                    class="edu-card"
+                    data-profile-reveal
+                    data-cv-title="CBSE (Class 10th) — New Horizon School"
+                    data-cv-cat="Education"
+                  >
+                    <div class="edu-header-row">
+                      <h4 class="edu-degree">CBSE (CLASS 10TH)</h4>
+                    </div>
+                    <dl class="edu-meta-dl">
+                      <div class="edu-meta-row">
+                        <dt>New Horizon School</dt>
+                        <dd>2022</dd>
+                      </div>
+                    </dl>
+                    <p class="edu-subjects">
+                      Subjects: English, Hindi, Mathematics, Science, Social Science.
+                    </p>
+                  </article>
+                </div>
+
+                <!-- WORK EXPERIENCE -->
+                <div class="middle-group">
+                  <h3 class="dossier-subhead" data-profile-reveal>WORK EXPERIENCE</h3>
+
+                  <article
+                    class="skill-entry"
+                    data-profile-reveal
+                    data-cv-title="Data Analytics Virtual Experience — Deloitte (Forage)"
+                    data-cv-cat="Experience"
+                  >
+                    <div class="exp-header-row">
+                      <h4 class="entry-title">DATA ANALYTICS VIRTUAL EXPERIENCE</h4>
+                      <span class="exp-org">Deloitte (Forage)</span>
+                    </div>
+                    <p class="entry-prose">
+                      Completed a data analytics and forensic technology job simulation, applying
+                      analytical thinking to interpret datasets and identify patterns. Gained
+                      hands-on experience in data analysis and reporting using Excel and Tableau.
+                    </p>
+                  </article>
+                </div>
+              </div>
+
+              <!-- RIGHT COLUMN: Tall 2:3 Portrait with Clip-Path Reveal & Parallax -->
+              <div class="profile-col-right">
+                <figure id="portrait-frame" class="portrait-frame">
+                  <div id="portrait-scale-wrap" class="portrait-scale-wrap">
+                    <div id="portrait-parallax-wrap" class="portrait-parallax-wrap">
+                      <img
+                        class="portrait-img"
+                        src="/assets/aistudio/IMG_1670_b163c17f.JPG"
+                        alt="Portrait of Sayama Shabbir seated beside an outdoor café window"
+                        referrerpolicy="no-referrer"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                </figure>
+              </div>
+            </div>
+
+            <!-- LET'S CONNECT -->
+            <footer id="section-connect" class="profile-footer">
+              <div
+                class="connect-block"
+                data-profile-reveal
+                data-cv-title="Let's Connect — Email & LinkedIn"
+                data-cv-cat="Contact"
+              >
+                <h3 class="dossier-subhead">LET'S CONNECT</h3>
+                <ul class="connect-links">
+                  <li class="connect-item">
+                    <span class="connect-label">
+                      <svg viewBox="0 0 16 16" aria-hidden="true">
+                        <rect x="1.75" y="3.25" width="12.5" height="9.5" rx="1.2" />
+                        <path d="M2.2 4l5.8 4.4L13.8 4" />
+                      </svg>
+                      <span>Email</span>
+                    </span>
+                    <a class="connect-link" href="mailto:saymashabbir312@gmail.com">
+                      saymashabbir312@gmail.com
+                    </a>
+                  </li>
+                  <li class="connect-item">
+                    <span class="connect-label">
+                      <svg viewBox="0 0 16 16" aria-hidden="true">
+                        <path d="M4.5 11.5l7-7M6.2 4.5h5.3v5.3" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                      <span>LinkedIn</span>
+                    </span>
+                    <a
+                      class="connect-link"
+                      href="https://www.linkedin.com/in/sayama-shabbir-a4229532a/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      www.linkedin.com/in/sayama-shabbir-a4229532a/
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="footer-colophon" data-profile-reveal>
+                <p class="footer-copyright">&copy; 2026 Sayama Shabbir. All rights reserved.</p>
+                <a href="#section-hero" class="footer-top-link">BACK TO TOP</a>
+              </div>
+            </footer>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="/script.js"></script>
+  </body>
+</html>
